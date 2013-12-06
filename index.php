@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<button id="start_button">Start</button>
+	<button id="start_button">Test my memory!</button>
 	<table>
 		<tr>
 			<td class="card" id="card1"></td>
