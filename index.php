@@ -13,8 +13,14 @@
 </head>
 
 <body>
-	<button id="start_button">Test my memory!</button>
-	<table>
+	
+	<h1 id="intro">Test your memory!</h1>
+	<div class="spacer">
+		<button id="start_button">Start</button>
+		<div class="instructions" id="instructions1">Pay attention to which squares change color.</div>
+		<div class="instructions" id="instructions2">Try to reproduce the same pattern.</div>
+	</div>
+	<table class="table">
 		<tr>
 			<td class="card" id="card1"></td>
 			<td class="card" id="card2"></td>
