@@ -1,84 +1,87 @@
 var cards_clicked = [];
 var cards_shown = [];
 
-$(".card").click(function(event) {
-	var card_color = $(this).css("background-color");
-
-	//if(card_color == "rgb(255, 128, 0)") {
-		$(this).animate({backgroundColor: "#1E64F2"}, "slow");
-		
-		card_clicked = $(this).attr("id");
-		console.log(card_clicked);
-
-		cards_clicked.push($(card_clicked));
-
-    	console.log(cards_clicked.length);
-    	console.log(cards_shown.length);
-    	console.log(cards_shown);
-
-    	if (cards_clicked.length == cards_shown.length) {
-    		if (cards_clicked.sort == cards_shown.sort) {
-    			console.log("You did it!");
-    		}
-    		else {
-    			console.log("Try again");
-    		}
-    	}
-
-	//}
-	//else {
-		//$(this).animate({backgroundColor: "red"}, "slow");
-	//}
-});
-
 $(".instructions").hide();
 
 
-$("#start_button").click(function(event) {
-	$("#start_button").attr("disabled", true);
+//Start button triggers random flipping of cards and instructions
+$(".button").click(function(event) {
+    
+    //Clear old values and instructions
+    cards_clicked = [];
+    $(".card").css("background-color", "#FF8000");
+    $(".instructions").fadeOut("slow");
+
+    //Retire start button
+    $("#start_button").attr("disabled", true);
     $("#start_button").fadeOut("slow");
     
+    //Display instructions
     $("#instructions1").delay(800).fadeIn("slow").delay(4000).fadeOut("slow");
     $("#instructions2").delay(6200).fadeIn("slow");
 
-
+    //Flip cards
     var card_ids = ["card1", "card2", "card3", "card4", "card5", "card6", "card7", "card8", "card9", "card10", "card11", "card12", "card13", "card14", "card15", "card16", "card17", "card18", "card19", "card20", "card21", "card22", "card23", "card24", "card25"];
-	shuffle(card_ids);
-	console.log(card_ids);
-	
-	cards_shown = card_ids.slice(0,5);
-	console.log(cards_shown);
+    shuffle(card_ids);
+    cards_shown = card_ids.slice(0,5);
 
-	$.each(cards_shown, function(index, value) {
-		$("#"+value).delay(1000).animate({backgroundColor: "#1E64F2"}, "slow").delay(3000);
-		$("#"+value).animate({backgroundColor: "#FF8000"}, "slow").delay(1000);
-        //$("#instructions").text("Try to reproduce the same pattern.");
-	});
+    $.each(cards_shown, function(index, value) {
+        $("#"+value).delay(1000).animate({backgroundColor: "#1E64F2"}, "slow").delay(3000);
+        $("#"+value).animate({backgroundColor: "#FF8000"}, "slow").delay(1000);
+    });
     
+});
+
+
+//Track and assess user performance
+$(".card").click(function(event) {
+
+    //Change color of user selections
+	//$(this).animate({backgroundColor: "#1E64F2"}, "slow");
+    $(this).css("background-color", "#1E64F2");
+	
+    //Add card to array
+    card_clicked = $(this).attr("id");
+	cards_clicked.push(card_clicked);
+
+    //Grade answers
+	if (cards_clicked.length == cards_shown.length) {
+
+        $(".instructions").hide();
+
+        if ($(cards_clicked).not(cards_shown).length == 0 && $(cards_shown).not(cards_clicked).length == 0) {
+			$("#instructions2").hide();
+            $("#instructions3").show();
+            $("#replay_button").show();
+		}
+		
+        else {
+			$("#instructions2").hide();
+            $("#instructions4").show();
+            $("#retry_button").show();
+		}
+	}
 
 });
 
 
-//Create a function for randomizing which cards to flip
-
+//Starter library
 function shuffle(array) {
-  var currentIndex = array.length
-    , temporaryValue
-    , randomIndex
-    ;
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
+  //While there remain elements to shuffle...
   while (0 !== currentIndex) {
 
-    // Pick a remaining element...
+    //Pick a remaining element
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
-    // And swap it with the current element.
+    //Swap it with the current element
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
 
   return array;
+
 }

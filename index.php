@@ -4,7 +4,6 @@
 
 	<title>Memorate</title>
 	
-	<link rel="stylesheet" href="css/main.css" type="text/css">
 	<link rel="stylesheet" href="css/features.css" type="text/css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -15,8 +14,9 @@
 <body>
 	
 	<h1 id="intro">Test your memory!</h1>
-	<div class="spacer">
-		<button id="start_button">Start</button>
+
+	<div class="wrapper">
+		<button class="button" id="start_button">Start</button>
 		<div class="instructions" id="instructions1">Pay attention to which squares change color.</div>
 		<div class="instructions" id="instructions2">Try to reproduce the same pattern.</div>
 	</div>
@@ -61,7 +61,10 @@
 			<td class="card" id="card25"></td>
 		</tr>
 	</table>
-
+	<div class="wrapper">
+		<div class="instructions" id="instructions3">You did it!<button class="button" id="replay_button">Play again</button></div>
+		<div class="instructions" id="instructions4">Not quite.<button class="button" id="retry_button">Try again</button></div>
+	</div>
 <script src="js/memorate.js"></script>
 
 </body>
