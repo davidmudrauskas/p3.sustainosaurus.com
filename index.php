@@ -3,6 +3,8 @@
 <head>
 
 	<title>Memorate</title>
+
+	<meta charset="UTF-8"/>
 	
 	<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 
