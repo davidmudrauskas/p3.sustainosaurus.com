@@ -4,7 +4,7 @@ var cards_shown = [];
 $(".instructions").hide();
 
 
-//Start button triggers random flipping of cards and instructions
+//Initialize game
 $(".button").click(function(event) {
 	
 	//Clear old values and instructions
