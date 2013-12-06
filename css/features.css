@@ -1,3 +1,5 @@
+/* General styling */
+
 * {
 	font-family: Calibri;
 }
@@ -7,6 +9,12 @@ h1 {
 	margin-left: 150px;
 	margin-top: 80px;
 }
+
+table {
+	margin-left: 150px;
+}
+
+/* Styling for game features */
 
 .card {
 	background-color: #FF8200;
@@ -50,11 +58,3 @@ h1 {
 #start_button {
 	margin-left: 76px;
 }
-
-table {
-	margin-left: 150px;
-}
-
-
-
-
