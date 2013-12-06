@@ -1,0 +1,60 @@
+* {
+	font-family: Calibri;
+}
+
+h1 {
+	font-size: 35px;
+	margin-left: 150px;
+	margin-top: 80px;
+}
+
+.card {
+	background-color: #FF8200;
+	height: 50px;
+	width: 50px;
+}
+
+.wrapper {
+	font-size: 28px;
+	height: 50px;
+	margin-bottom: 25px;
+	margin-left: 150px;
+	margin-top: 25px;
+}
+
+.instructions {
+	display: none;
+}
+
+
+.button {
+	background-color: #696686;
+	border-radius: 4px;
+	border: 1px solid black;
+	color: white;
+	font-size: 28px;
+	height: 50px;
+	width: 120px;
+}
+
+#replay_button {
+	font-size: 20px;
+	margin-left: 20px;
+}
+
+#retry_button {
+	font-size: 20px;
+	margin-left: 20px;
+}
+
+#start_button {
+	margin-left: 76px;
+}
+
+table {
+	margin-left: 150px;
+}
+
+
+
+
